@@ -20,8 +20,8 @@ elif new != "Y" and new != "N":
 
 # continue statement is temporary.
 # if statement should probably be here
-existing_file = input('Enter name of existing file (ex. filename.txt): ')
-file_object = open('existing_file', 'r+')
+existing_file = raw_input('Enter name of existing file (ex. filename.txt): ')
+# file_object = open('existing_file', 'r+')
 # ask user for filename
 # search for filename and open it
 
