@@ -2,25 +2,58 @@
 # CS294 Project
 # Galaxy Sky Spaxel Logger
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--n", help="start on a new file")
+parser.add_argument("--w", help="work on existing file")
+# optional for now; if time permits I'll implement these too
+parser.add_argument("--t", help="automatically enable diagnostics")
+parser.add_argument("--ms", help="input majority-sky cube")
+parser.add_argument("--mg", help="input majority-galaxy cube")
+args = parser.parse_args()
+
 # Welcome text
-print('Galaxy Sky Spaxel Logger v1.0 by Kristen Laguana')
+print('\nGalaxy Sky Spaxel Logger v1.0 by Kristen Laguana\n')
+
+# *****************************
+
+# if args == "--n":
+# create new text file
+# name file
+# open file for writing and saving
+
+#    fo = open("newfile.txt", "r+")
+#    print "Filename: ", fo.name
+#    new_fo = raw_input("Rename file (ex: foo.txt): ")
+#    fo.name = new_fo
+#    print "New filename: ", fo.name
+
+# if args == "--w"
+# prompt user for filename
+# look up file
+# open file for editing
+
+# ********************************************
+
+
+
 
 # New cube? Y/N
-new = raw_input('Are you working on a new cube? (Y/N): ')
+# new = raw_input('Are you working on a new cube? (Y/N): ')
 
 # creates text file for future sky spaxel dump
-if new == "Y": 
-    filename = raw_input('Input filename (ex. filename.txt): ')
+#if new == "Y": 
+#    filename = raw_input('Input filename (ex. filename.txt): ')
 
 # error message if they derp
-elif new != "Y" and new != "N":
-    print('Invalid input. Please type Y or N instead: ')
+#elif new != "Y" and new != "N":
+#    print('Invalid input. Please type Y or N instead: ')
 
 # assuming user wants to work on an existing file
 
 # continue statement is temporary.
 # if statement should probably be here
-existing_file = raw_input('Enter name of existing file (ex. filename.txt): ')
+#existing_file = raw_input('Enter name of existing file (ex. filename.txt): ')
 # file_object = open('existing_file', 'r+')
 # ask user for filename
 # search for filename and open it
