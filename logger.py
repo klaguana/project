@@ -14,17 +14,17 @@ args = parser.parse_args()
 
 # Welcome text
 
-print('\nGalaxy Sky Spaxel Logger v1.0 by Kristen Laguana\n\n')
+print('\n// Galaxy Sky Spaxel Logger v1.0 by Kristen Laguana //\n\n')
 
 # if starting on a new file:
 if args.new:
-    print("Creating new file...")
-#   print("File {} created. Let's begin.".format(args.file)
+    print("Creating new file...\n")
+    print("File {} created. Let's begin.\n".format(args.file))
     out_file = open(args.file, 'w')
 
 # if continuing from a previous working file:
-if args.working:
-    print("Retrieving working file...")
+elif args.working:
+    print("Working file {} retrieved. Let's begin.\n".format(args.file))
     out_file = open(args.file, 'a')
 
 # if args == "--n":
