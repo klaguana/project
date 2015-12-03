@@ -1,12 +1,18 @@
 # project
 CS294 Project: Galaxy Sky Spaxel Logger
 
-This program serves four purposes:
+This program allows the user to properly classify spaxels from a 15x15 cube of spectra, and output sky spaxels into a text file for future sky subtraction. 
 
-1) Logs spaxels that contain sky background based on user input, and outputs these spaxels into a text file that can be used to subtract sky spectra from the overall galaxy spectra.
+If working on a new cube:
+$ python logger.py -n -f filename.txt
 
-2) Helps diagnose spaxels that are unclear to user whether or not they contain sky spectra.
+If working on an existing cube:
+$ python logger.py -w -f filename.txt
 
-3) Outputs visual 15x15 grid that displays where the sky spaxels are in the cube (or lack thereof).
+Future goals:
 
-4) Outputs documentation of spaxel diagnostics (if diagnostics were needed).
+1) Help the user diagnose spaxels that are unclear to user whether or not they contain sky spectra.
+
+2) Output visual 15x15 grid that displays where the sky spaxels are in the cube (or lack thereof).
+
+3) Output documentation of spaxel diagnostics (if diagnostics were needed).
