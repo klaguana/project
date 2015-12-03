@@ -3,19 +3,29 @@
 # Galaxy Sky Spaxel Logger
 
 import argparse
+
 parser = argparse.ArgumentParser()
-parser.add_argument("--n", help="start on a new file")
-parser.add_argument("--w", help="work on existing file")
-# optional for now; if time permits I'll implement these too
-parser.add_argument("--t", help="automatically enable diagnostics")
-parser.add_argument("--ms", help="input majority-sky cube")
-parser.add_argument("--mg", help="input majority-galaxy cube")
+parser.add_argument("--new", "-n", help="start on a new file",\
+                    action="store_true")
+parser.add_argument("--file", "-f", help="choose filename")
+parser.add_argument("--working", "-w", help="work on existing file",\
+                    action="store_true")
 args = parser.parse_args()
 
 # Welcome text
-print('\nGalaxy Sky Spaxel Logger v1.0 by Kristen Laguana\n')
 
-# *****************************
+print('\nGalaxy Sky Spaxel Logger v1.0 by Kristen Laguana\n\n')
+
+# if starting on a new file:
+if args.new:
+    print("Creating new file...")
+#   print("File {} created. Let's begin.".format(args.file)
+    out_file = open(args.file, 'w')
+
+# if continuing from a previous working file:
+if args.working:
+    print("Retrieving working file...")
+    out_file = open(args.file, 'a')
 
 # if args == "--n":
 # create new text file
@@ -34,20 +44,6 @@ print('\nGalaxy Sky Spaxel Logger v1.0 by Kristen Laguana\n')
 # open file for editing
 
 # ********************************************
-
-
-
-
-# New cube? Y/N
-# new = raw_input('Are you working on a new cube? (Y/N): ')
-
-# creates text file for future sky spaxel dump
-#if new == "Y": 
-#    filename = raw_input('Input filename (ex. filename.txt): ')
-
-# error message if they derp
-#elif new != "Y" and new != "N":
-#    print('Invalid input. Please type Y or N instead: ')
 
 # assuming user wants to work on an existing file
 
@@ -113,3 +109,11 @@ lines = [['[OII] 3726', 3727.09],
          [r'H$\alpha$', 6564.61],
          ['[NII] 6583', 6585.23],
          ['HeI', 6679.996]]
+
+def create_new_file():
+    print("Creating new file...")
+    pass
+
+def begin_working_file():
+    print("Retrieving file...")
+    pass
