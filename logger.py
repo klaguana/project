@@ -4,6 +4,14 @@
 
 import argparse
 
+def create_new_file():
+    print("Creating new file...\n")
+    pass
+
+def begin_working_file():
+    print("Retrieving file...\n")
+    pass
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--new", "-n", help="start on a new file",\
                     action="store_true")
@@ -18,43 +26,55 @@ print('\n// Galaxy Sky Spaxel Logger v1.0 by Kristen Laguana //\n\n')
 
 # if starting on a new file:
 if args.new:
-    print("Creating new file...\n")
-    print("File {} created. Let's begin.\n".format(args.file))
+    create_new_file()
     out_file = open(args.file, 'w')
+    print("File {} created. Let's begin.\n".format(args.file))
 
 # if continuing from a previous working file:
 elif args.working:
-    print("Working file {} retrieved. Let's begin.\n".format(args.file))
+    begin_working_file()
     out_file = open(args.file, 'a')
+    print("Working file {} retrieved. Let's begin.\n".format(args.file))
 
-# if args == "--n":
-# create new text file
-# name file
-# open file for writing and saving
+# goes through 15x15 grid
+for column in range(1, 16):
+    for row in range(1,16):
 
-#    fo = open("newfile.txt", "r+")
-#    print "Filename: ", fo.name
-#    new_fo = raw_input("Rename file (ex: foo.txt): ")
-#    fo.name = new_fo
-#    print "New filename: ", fo.name
+        # prints working spaxel, prompts user for classification
+        print("Currently at {},{}:\n".format(row,column))
+        ans = raw_input("Is this a sky spaxel? (Y/N/?): ")
+        
+        # if user cannot classify spaxel
+        if ans == "?":
+            print("Diagnostics coming soon, sorry!\n")
+        
+        # if the spaxel is NOT a sky spaxel
+        elif ans == "N":
+            print("{},{} will be considered a galaxy spaxel.\n\
+It will not be saved to the file.\n".format(row,column))
+        
+        # if the spaxel is a sky spaxel
+        elif ans == "Y":
+            
+            # prompts user for confirmation
+            out_file.write("{},{}".format(row,column))
+            conf = raw_input("{},{} will be saved to file. \
+Are you sure? (Y/N): ".format(row, column))
 
-# if args == "--w"
-# prompt user for filename
-# look up file
-# open file for editing
+            # temp, replace w/whatever makes this return to line 45
+            if conf == "N":
+                print("WELP. TOO LATE 4 U\n")
+            
+            # saves spaxel to file
+            elif conf == "Y":
+               out_file.write("{},{}\n".format(row,column))
+               print("{},{} will be saved to file as a sky spaxel.\n"\
+               .format(row, column))
+        else:
+        # same problem as line 64
+            print("Invalid input. Look at what you've gone and done.\n")
+                
 
-# ********************************************
-
-# assuming user wants to work on an existing file
-
-# continue statement is temporary.
-# if statement should probably be here
-#existing_file = raw_input('Enter name of existing file (ex. filename.txt): ')
-# file_object = open('existing_file', 'r+')
-# ask user for filename
-# search for filename and open it
-
-# Spaxel by spaxel input? Y/N
 # If Y then:
 #   Go through entire 15x15 array
 
@@ -89,8 +109,10 @@ elif args.working:
 # When encountering weird spaxel:
 # Enable troubleshooting? Y/N
 
-# Dictionary of common optical nebular spectral lines
 
+
+# Dictionary of common optical nebular spectral lines
+ 
 lines = [['[OII] 3726', 3727.09],
          ['[OII] 3729', 3729.88],
          ['H12', 3751.22],
@@ -109,11 +131,3 @@ lines = [['[OII] 3726', 3727.09],
          [r'H$\alpha$', 6564.61],
          ['[NII] 6583', 6585.23],
          ['HeI', 6679.996]]
-
-def create_new_file():
-    print("Creating new file...")
-    pass
-
-def begin_working_file():
-    print("Retrieving file...")
-    pass
