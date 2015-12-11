@@ -4,10 +4,10 @@ CS294 Project: Galaxy Sky Spaxel Logger
 This program allows the user to properly classify spaxels from a 15x15 cube of spectra, and output sky spaxels into a text file for future sky subtraction. 
 
 If working on a new cube:
-$ python logger.py -n -f filename.txt
+$ python exp.py -n -f filename.txt
 
 If working on an existing cube:
-$ python logger.py -w -f filename.txt
+$ python exp.py -w -f filename.txt
 
 Future goals:
 
